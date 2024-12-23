@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Profile Home</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+
+<body>
+    <div class="profile-container">
+        <!-- Header -->
+        <header>
+            <div class="profile-header">
+                <img src="" alt="Profile Picture" id="profile-img" class="profile-img">
+                <h1 id="profile-name"></h1>
+            </div>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <section class="stats-section">
+                <h2>Game Stats</h2>
+                <div class="stats">
+                    <div class="stat-item">
+                        <h3>Games Played</h3>
+                        <p id="games-played">0</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>Win Rate</h3>
+                        <p id="win-rate">0%</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>Matches Won</h3>
+                        <p id="matches-won">0</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="actions-section">
+                <h2>Actions</h2>
+                <button class="action-btn" onclick="playGame()">Play Game</button>
+            </section>
+        </main>
+    </div>
+    <script src="profile.js"></script>
+</body>
+
+</html>
