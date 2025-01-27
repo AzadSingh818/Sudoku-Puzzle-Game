@@ -1,0 +1,12 @@
+specVersion: "v1beta"
+serviceId: "web-sudoku-puzzle"
+location: "us-central1"
+schema:
+  source: "./schema"
+  datasource:
+    postgresql:
+      database: "fdcdb"
+      cloudSql:
+        instanceId: "web-sudoku-puzzle-fdc"
+      # schemaValidation: "COMPATIBLE"
+connectorDirs: ["./connector"]

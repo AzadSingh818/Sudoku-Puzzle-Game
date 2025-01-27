@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--=============== REMIXICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js"></script>
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="../public/CSSstyles/reset_passward.css">
+    <title>Reset Password</title>
+</head>
+
+<body>
+    <div class="reset-password-container">
+        <h2>Reset Password</h2>
+        <form method="post">
+            <div class="form-group">
+                <label for="new_password">New Password:</label>
+                <input type="password" id="new_password" name="new_password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm_password">Confirm New Password:</label>
+                <input type="password" id="confirm_password" name="confirm_password" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Set New Password">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Initialize Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyBy9wvJT3KYf8ckngzKOf30JUGZD5HMS1U", // Your API key
+            authDomain: "login-form-9095d.firebaseapp.com", // Your authentication domain
+            projectId: "login-form-9095d", // Your Firebase project ID
+            storageBucket: "login-form-9095d.firebasestorage.app", // Your storage bucket
+            messagingSenderId: "260527389944", // Your messaging sender ID
+            appId: "1:260527389944:web:454f53fb2c46c75a224f0d" // Your app ID
+
+        };
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+
+        // Handle the reset password form submission
+        document.getElementById('resetPasswordForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const oobCode = urlParams.get('oobCode'); // Retrieve the reset code from the URL
+            const newPassword = document.getElementById('new_password').value;
+            const confirmPassword = document.getElementById('confirm_password').value;
+
+            const messageDiv = document.getElementById('message');
+
+            // Clear previous messages
+            messageDiv.innerHTML = "";
+
+            // Check if passwords match
+            if (newPassword !== confirmPassword) {
+                messageDiv.innerHTML = '<p class="error-message">Passwords do not match!</p>';
+                return;
+            }
+
+            try {
+                // Confirm the password reset
+                await auth.confirmPasswordReset(oobCode, newPassword);
+                messageDiv.innerHTML = '<p class="success-message">Password has been reset successfully!</p>';
+            } catch (error) {
+                messageDiv.innerHTML = `<p class="error-message">Error: ${error.message}</p>`;
+            }
+        });
+    </script>
+</body>
+
+</html>

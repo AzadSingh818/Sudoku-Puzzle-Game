@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('../assist/login-bg.png');
+}
+.login-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    max-width: 90%;
+    text-align: center;
+}
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+.form-group input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+.form-group label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 16px;
+    color: #aaa;
+    pointer-events: none;
+    transition: 0.2s ease all;
+}
+.form-group input[type="text"]:focus + label,
+.form-group input[type="text"]:valid + label {
+    top: -20px;
+    left: 10px;
+    font-size: 12px;
+    color: #4CAF50;
+}
+.form-group input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 4px;
+    width: 100%;
+}
+.form-group input[type="submit"]:hover {
+    background-color: #45a049;
+}

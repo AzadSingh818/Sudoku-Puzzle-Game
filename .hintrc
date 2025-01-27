@@ -40,6 +40,8 @@
       {
         "duplicate-id-active": "off"
       }
-    ]
+    ],
+    "button-type": "off",
+    "css-prefix-order": "off"
   }
 }
