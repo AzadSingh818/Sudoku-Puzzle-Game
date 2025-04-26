@@ -12,7 +12,7 @@
 // app.use(bodyParser.json());
 
 // // Connect to MongoDB
-// mongoose.connect('mongodb+srv://azadofficial16:mXsX1sYaO8fMhwBe@sudoku-game-db.dv4cd.mongodb.net/?retryWrites=true&w=majority&appName=sudoku-game-db', {
+// mongoose.connect('#######################################################################', {
 //     useNewUrlParser: true,
 //     useUnifiedTopology: true,
 // })
